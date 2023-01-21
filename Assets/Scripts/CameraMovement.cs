@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour
     private float zoomSpeed = 5f;
     private float rotationSpeed = 0.1f;
 
-    private float maxHeight = 15;
+    private float maxHeight = 50;
     private float minHeight = 2;
 
     private Vector2 p1;
