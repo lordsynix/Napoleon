@@ -8,12 +8,15 @@ public class SelectedUnitDictionary : MonoBehaviour
 
     public void AddSelected(GameObject addedObject)
     {
-        int id = addedObject.GetInstanceID();
-
-        if (!(selectedTable.ContainsKey(id)))
+        if (addedObject.layer != 3)
         {
-            selectedTable.Add(id, addedObject);
-            addedObject.AddComponent<SelectedUnit>();
+            int id = addedObject.GetInstanceID();
+
+            if (!(selectedTable.ContainsKey(id)))
+            {
+                selectedTable.Add(id, addedObject);
+                addedObject.AddComponent<SelectedUnit>();
+            }
         }
     }
 
