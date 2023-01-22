@@ -7,7 +7,6 @@ public class Unit : MonoBehaviour
     public static Unit instance;
 
     public GameObject[] unitUI;
-    
     public Dictionary<int, string> unitTypeFromInt = new Dictionary<int, string>()
     {
         [1] = "Infantry",
@@ -16,6 +15,9 @@ public class Unit : MonoBehaviour
         [4] = "Logistics"
 
     };
+
+    public int activeUnitID = 0;
+    public bool dragDropActive = false;
 
     private void Awake()
     {
