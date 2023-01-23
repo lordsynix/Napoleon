@@ -10,10 +10,8 @@ public class CameraMovement : MonoBehaviour
 
     private float maxHeight = 50;
     private float minHeight = 2;
-    private float minPosX = 0;
-    private float maxPosX = 1300;
-    private float minPosZ = 0;
-    private float maxPosZ = 750;
+
+    private Vector3 lastLegalPosition;
 
     private Vector2 p1;
     private Vector2 p2;
@@ -57,6 +55,7 @@ public class CameraMovement : MonoBehaviour
         transform.position += move;
 
         GetCameraRotation();
+        CheckGround();
     }
 
     void GetCameraRotation()
@@ -78,5 +77,15 @@ public class CameraMovement : MonoBehaviour
             transform.rotation *= Quaternion.Euler(new Vector3(0, dx, 0));
             transform.GetChild(0).transform.rotation *= Quaternion.Euler(new Vector3(-dy, 0, 0));
         }
+    }
+
+    private void CheckGround()
+    {
+        if (!Physics.Raycast(transform.position, -transform.up))
+        {
+            transform.position = lastLegalPosition;
+            transform.position = new Vector3(lastLegalPosition.x, lastLegalPosition.y + 0.5f, lastLegalPosition.z);
+        }
+        lastLegalPosition = transform.position;
     }
 }
