@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    private float cameraSpeed = 0.06f;
+    private float cameraSpeed = 0.1f;
     private float zoomSpeed = 5f;
     private float rotationSpeed = 0.1f;
 
     private float maxHeight = 50;
     private float minHeight = 2;
+    private float minPosX = 0;
+    private float maxPosX = 1300;
+    private float minPosZ = 0;
+    private float maxPosZ = 750;
 
     private Vector2 p1;
     private Vector2 p2;
@@ -21,6 +25,7 @@ public class CameraMovement : MonoBehaviour
         float movementSpeedY = cameraSpeed * Input.GetAxis("Vertical");
         float scrollSpeed = Mathf.Log(transform.position.y) * -zoomSpeed * Input.GetAxis("Mouse ScrollWheel");
 
+        // Limits to Vertical Movement
         if ((transform.position.y >= maxHeight) && (scrollSpeed > 0))
         {
             scrollSpeed = 0;
