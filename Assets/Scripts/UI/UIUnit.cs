@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+public class UIUnit : MonoBehaviour
 {
-    public static Unit instance;
+    public static UIUnit instance;
 
     public GameObject[] unitUI;
     public Dictionary<int, string> unitTypeFromInt = new Dictionary<int, string>()

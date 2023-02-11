@@ -12,6 +12,7 @@ public class CameraMovement : MonoBehaviour
     private float minHeight = 2;
 
     private Vector3 lastLegalPosition;
+    private Vector3 legalPosition = new Vector3(300, 11, 285);
 
     private Vector2 p1;
     private Vector2 p2;
@@ -56,6 +57,7 @@ public class CameraMovement : MonoBehaviour
 
         GetCameraRotation();
         CheckGround();
+        CheckBorders();
     }
 
     void GetCameraRotation()
@@ -87,5 +89,33 @@ public class CameraMovement : MonoBehaviour
             transform.position = new Vector3(lastLegalPosition.x, lastLegalPosition.y + 0.5f, lastLegalPosition.z);
         }
         lastLegalPosition = transform.position;
+    }
+
+    private void CheckBorders()
+    {
+        if (transform.position.x < 0)
+        {
+            legalPosition = transform.position;
+            legalPosition.x = 1;
+            transform.position = legalPosition;
+        }
+        if (transform.position.x > 1300)
+        {
+            legalPosition = transform.position;
+            legalPosition.x = 1299;
+            transform.position = legalPosition;
+        }
+        if (transform.position.z < 0)
+        {
+            legalPosition = transform.position;
+            legalPosition.z = 1;
+            transform.position = legalPosition;
+        }
+        if (transform.position.z > 750)
+        {
+            legalPosition = transform.position;
+            legalPosition.z = 749;
+            transform.position = legalPosition;
+        }
     }
 }

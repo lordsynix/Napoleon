@@ -26,14 +26,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Unit.instance.dragDropActive = false;
-        Unit.instance.activeUnitID = unitID;
-        callback.text = Unit.instance.unitTypeFromInt[unitID] + " selected";
+        UIUnit.instance.dragDropActive = false;
+        UIUnit.instance.activeUnitID = unitID;
+        callback.text = UIUnit.instance.unitTypeFromInt[unitID] + " selected";
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Unit.instance.dragDropActive = true;
+        UIUnit.instance.dragDropActive = true;
         canvasGroup.blocksRaycasts = false;
     }
 
