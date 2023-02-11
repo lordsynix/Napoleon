@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 4301497179598248595}
   - component: {fileID: 4301497179598248594}
   - component: {fileID: 4301497179598248589}
-  - component: {fileID: 4301497179598248588}
   - component: {fileID: 4301497179598248592}
   - component: {fileID: 4301497179598248593}
-  - component: {fileID: 4301497179598248598}
   - component: {fileID: 6954193222264519842}
+  - component: {fileID: 5388973072294503475}
+  - component: {fileID: 7172093751428034542}
   m_Layer: 8
   m_Name: Infantry
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,20 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4301497179598248588
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4301497179598248591}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4301497179598248592
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,18 +126,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4301497179598248598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4301497179598248591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 685aec842126e8a4cbc5583773f7503f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6954193222264519842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +138,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b629331b5fc7b489463689ed556fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLocation: {x: 312, y: 5, z: 313}
+  currentLocation: {x: 310, y: 3, z: 287}
   side: 0
   groupType: 0
   squadType: 0
+--- !u!136 &5388973072294503475
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301497179598248591}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7172093751428034542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301497179598248591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9724c6c647e214384a3ce4b58db9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

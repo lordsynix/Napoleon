@@ -1635,6 +1635,7 @@ GameObject:
   - component: {fileID: 1266314364}
   - component: {fileID: 1266314365}
   - component: {fileID: 1266314366}
+  - component: {fileID: 1266314367}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: EventSystem
@@ -1681,7 +1682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0702e27d61aa84042909f1daa0ff1983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spread: 1
 --- !u!114 &1266314365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,6 +1713,20 @@ MonoBehaviour:
   - {fileID: 2263049262820453550, guid: 8753139f1add5864a9821cb8b8d546d0, type: 3}
   - {fileID: 1779539516834139271, guid: 4a8d0b4046bc5b54081169d80964424b, type: 3}
   - {fileID: 3527934305397894017, guid: 6ae1ae4aefb62f44ba0862a2f43601e6, type: 3}
+--- !u!114 &1266314367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266314361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685aec842126e8a4cbc5583773f7503f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationPrefab: {fileID: 5832156979721084500, guid: b9843e7494b8af94c8f003abf4210c94, type: 3}
+  spread: 5
 --- !u!4 &1269990202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9d2674f7a22e11143ab33025f0e20604, type: 3}

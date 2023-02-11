@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 1779539516834139291}
   - component: {fileID: 1779539516834139290}
   - component: {fileID: 1779539516834139269}
-  - component: {fileID: 1779539516834139268}
   - component: {fileID: 1779539516834139288}
   - component: {fileID: 1779539516834139289}
-  - component: {fileID: 1779539516834139294}
   - component: {fileID: 5479008900979037607}
+  - component: {fileID: -3128210219549442655}
+  - component: {fileID: -2715488392989224459}
   m_Layer: 8
   m_Name: Cavalry
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,20 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1779539516834139268
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779539516834139271}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1779539516834139288
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,18 +126,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1779539516834139294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779539516834139271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 685aec842126e8a4cbc5583773f7503f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5479008900979037607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,3 +142,29 @@ MonoBehaviour:
   side: 0
   groupType: 2
   squadType: 0
+--- !u!136 &-3128210219549442655
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779539516834139271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2715488392989224459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779539516834139271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9724c6c647e214384a3ce4b58db9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
