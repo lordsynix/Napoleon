@@ -13,28 +13,23 @@ MonoBehaviour:
   m_Name: Waterloo
   m_EditorClassIdentifier: 
   armyBuild:
-  - position: {x: 312, y: 5, z: 313}
+  - position: {x: 300, y: 3, z: 285}
     unitType: 0
     groupType: 0
     squadType: 0
     side: 0
-  - position: {x: 312, y: 5, z: 313}
-    unitType: 2
-    groupType: 2
-    squadType: 0
-    side: 0
-  - position: {x: 312, y: 5, z: 313}
-    unitType: 3
-    groupType: 3
-    squadType: 0
-    side: 0
-  - position: {x: 312, y: 5, z: 313}
+  - position: {x: 305, y: 3, z: 286}
     unitType: 0
     groupType: 0
     squadType: 0
     side: 0
-  - position: {x: 312, y: 5, z: 313}
-    unitType: 1
-    groupType: 1
+  - position: {x: 310, y: 3, z: 287}
+    unitType: 0
+    groupType: 0
+    squadType: 0
+    side: 0
+  - position: {x: 310, y: 3, z: 287}
+    unitType: 0
+    groupType: 0
     squadType: 0
     side: 0

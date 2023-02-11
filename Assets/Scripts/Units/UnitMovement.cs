@@ -6,23 +6,15 @@ using UnityEngine.AI;
 public class UnitMovement : MonoBehaviour
 {
     private NavMeshAgent unitNavMeshAgent;
+    public SelectedUnitDictionary unitDictionary;
 
     void Start()
     {
+        unitDictionary = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<SelectedUnitDictionary>();
         unitNavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButton(1) && GetComponent<SelectedUnit>() != null)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 50000))
-            {
-                unitNavMeshAgent.SetDestination(hit.point);
-            }
-        }
     }
 }
