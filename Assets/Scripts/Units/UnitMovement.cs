@@ -11,11 +11,53 @@ public class UnitMovement : MonoBehaviour
     private SelectedUnitDictionary unitDictionary;
     private List<Vector3> formationPositions = new List<Vector3>();
 
+    public GameObject leftSquad;
+    public GameObject centerSquad;
+    public GameObject rightSquad;
+
     public float spread;
 
     private void Start()
     {
         unitDictionary = GetComponent<SelectedUnitDictionary>();
+        StartCoroutine(StartingFormation());
+    }
+
+    private IEnumerator StartingFormation()
+    {
+        yield return new WaitForSeconds(2f);
+
+        // Starting formation for left squad
+        Transform[] leftSquadUnits = leftSquad.GetComponentsInChildren<Transform>();
+        foreach (Transform unit in leftSquadUnits)
+        {
+            unitDictionary.AddSelected(unit.gameObject);
+        }
+
+        CalculateFormation(leftSquad.transform.position);
+        unitDictionary.DeselectAll();
+
+        // Starting formation for center squad
+        Transform[] centerSquadUnits = centerSquad.GetComponentsInChildren<Transform>();
+        foreach (Transform unit in centerSquadUnits)
+        {
+            unitDictionary.AddSelected(unit.gameObject);
+        }
+
+        CalculateFormation(centerSquad.transform.position);
+        unitDictionary.DeselectAll();
+
+        // Starting formation for right squad
+        Transform[] rightSquadUnits = rightSquad.GetComponentsInChildren<Transform>();
+        foreach (Transform unit in rightSquadUnits)
+        {
+            unitDictionary.AddSelected(unit.gameObject);
+        }
+
+        CalculateFormation(rightSquad.transform.position);
+        unitDictionary.DeselectAll();
+
+
     }
 
     private void Update()
@@ -141,11 +183,14 @@ public class UnitMovement : MonoBehaviour
         int i = 0;
         foreach (KeyValuePair<int, GameObject> unit in unitDictionary.selectedTable)
         {
-            unit.Value.GetComponent<NavMeshAgent>().SetDestination(formationPositions[i]);
-            i++;
-            if (i > formationPositions.Count)
+            if (unit.Value.GetComponent<NavMeshAgent>() != null)
             {
-                i = 0;
+                unit.Value.GetComponent<NavMeshAgent>().SetDestination(formationPositions[i]);
+                i++;
+                if (i > formationPositions.Count)
+                {
+                    i = 0;
+                }
             }
         }
     }

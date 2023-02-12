@@ -7,11 +7,17 @@ public class SelectedUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Renderer>().material.color = Color.red;
+        if (GetComponent<Renderer>() != null)
+        {
+            GetComponent<Renderer>().material.color = Color.red;
+        }
     }
 
     private void OnDestroy()
     {
-        GetComponent<Renderer>().material.color = Color.white;
+        if (GetComponent<Renderer>() != null)
+        {
+            GetComponent<Renderer>().material.color = Color.white;
+        }
     }
 }
