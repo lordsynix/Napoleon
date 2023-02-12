@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Callback Text
   - EventSystem
+  - Canvas
   layers:
   - Default
   - TransparentFX
