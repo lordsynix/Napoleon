@@ -12,44 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f72f252c5393624eb85e11c2226ad8e, type: 3}
   m_Name: Waterloo
   m_EditorClassIdentifier: 
-  armyBuild:
-  - position: {x: 300, y: 3, z: 285}
-    unitType: 0
-    groupType: 0
-    squadType: 0
-    side: 0
-  - position: {x: 305, y: 3, z: 286}
-    unitType: 0
-    groupType: 0
-    squadType: 0
-    side: 0
-  - position: {x: 310, y: 3, z: 287}
-    unitType: 0
-    groupType: 0
-    squadType: 0
-    side: 0
-  - position: {x: 310, y: 3, z: 287}
-    unitType: 0
-    groupType: 0
-    squadType: 0
-    side: 0
-  - position: {x: 310, y: 3, z: 287}
-    unitType: 0
-    groupType: 0
-    squadType: 0
-    side: 0
-  - position: {x: 310, y: 3, z: 287}
-    unitType: 0
-    groupType: 0
-    squadType: 0
-    side: 0
-  - position: {x: 310, y: 3, z: 287}
-    unitType: 0
-    groupType: 0
-    squadType: 0
-    side: 0
-  - position: {x: 310, y: 3, z: 287}
-    unitType: 0
-    groupType: 0
-    squadType: 0
-    side: 0
+  leftFlankBuild:
+  - groupType: 0
+  - groupType: 1
+  - groupType: 2
+  - groupType: 3
+  - groupType: 1
+  centerBuild:
+  - groupType: 0
+  - groupType: 0
+  - groupType: 0
+  - groupType: 0
+  - groupType: 0
+  rightFlankBuild:
+  - groupType: 2
+  - groupType: 2
+  - groupType: 2
+  - groupType: 2
+  - groupType: 2

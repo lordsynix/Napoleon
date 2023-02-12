@@ -45,8 +45,8 @@ public class UnitMovement : MonoBehaviour
     {
         if (unitDictionary.selectedTable.Count % 2 == 0)
         {
-            int formationWidth = unitDictionary.selectedTable.Count / 2;
-            int formationDepth = unitDictionary.selectedTable.Count / 2;
+            int formationWidth = (int)Mathf.Sqrt(unitDictionary.selectedTable.Count);
+            int formationDepth = (int)Mathf.Sqrt(unitDictionary.selectedTable.Count);
 
             Vector3 middleOffset = new Vector3(formationWidth * 0.5f, 0, formationDepth * 0.5f);
 
@@ -71,6 +71,7 @@ public class UnitMovement : MonoBehaviour
         int i = 0;
         foreach (KeyValuePair<int, GameObject> unit in unitDictionary.selectedTable)
         {
+            Debug.Log(formationPositions[i]);
             unit.Value.GetComponent<NavMeshAgent>().SetDestination(formationPositions[i]);
             i++;
             if (i > formationPositions.Count)
