@@ -1,5 +1,5 @@
 public enum GroupType
 {
-    infantry, artillery, cavalry, logistics
+    Infantry, Artillery, Cavalry, Logistics
 }
 

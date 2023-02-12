@@ -5,7 +5,9 @@ using System;
 
 public class UnitCreator : MonoBehaviour
 {
-    public Transform unitParent;
+    public Transform leftParent;
+    public Transform centerParent;
+    public Transform rightParent;
     [SerializeField] private GameObject[] unitPrefabs;
 
     private Dictionary<string, GameObject> nameToUnitDict = new Dictionary<string, GameObject>();
@@ -17,14 +19,44 @@ public class UnitCreator : MonoBehaviour
             nameToUnitDict.Add(unit.GetComponent<Unit>().GetType().ToString(), unit);
         }
     }
-    public GameObject CreateUnit(Type type)
+    public GameObject CreateUnit(Type type, string squadName)
     {
-        GameObject prefab = nameToUnitDict[type.ToString()];
-        if (prefab)
+        if (squadName == "left")
         {
-            GameObject newUnit = Instantiate(prefab, unitParent);
-            return prefab;
+            GameObject prefab = nameToUnitDict[type.ToString()];
+            if (prefab)
+            {
+                GameObject newUnit = Instantiate(prefab, leftParent);
+                return prefab;
+            }
+            return null;
         }
-        return null;
+
+        else if (squadName == "center")
+        {
+            GameObject prefab = nameToUnitDict[type.ToString()];
+            if (prefab)
+            {
+                GameObject newUnit = Instantiate(prefab, centerParent);
+                return prefab;
+            }
+            return null;
+        }
+
+        else if (squadName == "right")
+        {
+            GameObject prefab = nameToUnitDict[type.ToString()];
+            if (prefab)
+            {
+                GameObject newUnit = Instantiate(prefab, rightParent);
+                return prefab;
+            }
+            return null;
+        }
+
+        else
+        {
+            return null;
+        }
     }
 }
