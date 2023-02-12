@@ -10,12 +10,16 @@ public class UnitMovement : MonoBehaviour
 {
     private SelectedUnitDictionary unitDictionary;
     private List<Vector3> formationPositions = new List<Vector3>();
+    private List<Vector3> groupFormationPositions = new List<Vector3>();
 
     public GameObject leftSquad;
     public GameObject centerSquad;
     public GameObject rightSquad;
 
+    [SerializeField] private ArmySetup setup;
+
     public float spread;
+    public float groupSpread;
 
     private void Start()
     {
@@ -29,35 +33,63 @@ public class UnitMovement : MonoBehaviour
 
         // Starting formation for left squad
         Transform[] leftSquadUnits = leftSquad.GetComponentsInChildren<Transform>();
-        foreach (Transform unit in leftSquadUnits)
+        CalculateStartingFormation(leftSquad.transform.position, 0);
+        for (int i = 0; i < setup.GetSquadCount(0); i++)
         {
-            unitDictionary.AddSelected(unit.gameObject);
+            for (int j = 0 + (i*36); j < 36 *(i+1); j++)
+            {
+                unitDictionary.AddSelected(leftSquadUnits[j].gameObject);
+            }
+            CalculateFormation(groupFormationPositions[i]);
+            unitDictionary.DeselectAll();           
         }
+        groupFormationPositions.Clear();
 
-        CalculateFormation(leftSquad.transform.position);
-        unitDictionary.DeselectAll();
+        yield return new WaitForSeconds(2f);
 
         // Starting formation for center squad
         Transform[] centerSquadUnits = centerSquad.GetComponentsInChildren<Transform>();
-        foreach (Transform unit in centerSquadUnits)
+        CalculateStartingFormation(centerSquad.transform.position, 1);
+        for (int i = 0; i < setup.GetSquadCount(1); i++)
         {
-            unitDictionary.AddSelected(unit.gameObject);
+            for (int j = 0 + (i*36); j < 36 *(i+1); j++)
+            {
+                unitDictionary.AddSelected(centerSquadUnits[j].gameObject);
+            }
+            CalculateFormation(groupFormationPositions[i]);
+            unitDictionary.DeselectAll();            
         }
+        groupFormationPositions.Clear();
 
-        CalculateFormation(centerSquad.transform.position);
-        unitDictionary.DeselectAll();
+        yield return new WaitForSeconds(2f);
 
         // Starting formation for right squad
         Transform[] rightSquadUnits = rightSquad.GetComponentsInChildren<Transform>();
-        foreach (Transform unit in rightSquadUnits)
+        CalculateStartingFormation(rightSquad.transform.position, 2);
+        for (int i = 0; i < setup.GetSquadCount(2); i++)
         {
-            unitDictionary.AddSelected(unit.gameObject);
+            for (int j = 0 + (i*36); j < 36 *(i+1); j++)
+            {
+                unitDictionary.AddSelected(rightSquadUnits[j].gameObject);
+            }
+            CalculateFormation(groupFormationPositions[i]);
+            unitDictionary.DeselectAll();            
         }
+        groupFormationPositions.Clear();
+    }
 
-        CalculateFormation(rightSquad.transform.position);
-        unitDictionary.DeselectAll();
+    private void CalculateStartingFormation(Vector3 destination, int squadIndex)
+    {
+        int formationWidth = setup.GetSquadCount(squadIndex);
+        Vector3 middleOffset = new Vector3(formationWidth / 2, 0, 0);
 
-
+        for (int x = 0; x < formationWidth; x++)
+        {
+            Vector3 pos = new Vector3(x, 0, 0);
+            pos -= middleOffset;
+            pos *= groupSpread;
+            groupFormationPositions.Add(pos + destination);
+        }
     }
 
     private void Update()

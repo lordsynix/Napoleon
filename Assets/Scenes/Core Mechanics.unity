@@ -440,7 +440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261352587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 650, y: 10, z: 50}
+  m_LocalPosition: {x: 614.6, y: 10, z: 23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -593,7 +593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468976848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1060, y: 18, z: 246}
+  m_LocalPosition: {x: 873.3, y: 1.41, z: 214.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1792,7 +1792,9 @@ MonoBehaviour:
   leftSquad: {fileID: 1645977261}
   centerSquad: {fileID: 261352587}
   rightSquad: {fileID: 468976848}
+  setup: {fileID: 11400000, guid: 4ee60abacd040b5408a7227db70b4c6a, type: 2}
   spread: 5
+  groupSpread: 50
 --- !u!4 &1269990202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9d2674f7a22e11143ab33025f0e20604, type: 3}
