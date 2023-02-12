@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    private float cameraSpeed = 0.1f;
-    private float zoomSpeed = 5f;
+    private float cameraSpeed = 50f;
+    private float zoomSpeed = 10f;
     private float rotationSpeed = 0.1f;
 
     private float maxHeight = 50;
@@ -52,7 +52,7 @@ public class CameraMovement : MonoBehaviour
         forwardBackwardMovement.Normalize();
         forwardBackwardMovement *= movementSpeedY;
 
-        Vector3 move = verticalMovement + lateralMovement + forwardBackwardMovement;
+        Vector3 move = verticalMovement + lateralMovement * Time.deltaTime + forwardBackwardMovement * Time.deltaTime;
         transform.position += move;
 
         GetCameraRotation();

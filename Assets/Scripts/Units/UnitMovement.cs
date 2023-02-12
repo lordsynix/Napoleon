@@ -43,12 +43,22 @@ public class UnitMovement : MonoBehaviour
     }
     public void CalculateFormation(Vector3 destination)
     {
-        if (unitDictionary.selectedTable.Count % 2 == 0)
+        if ((Mathf.Sqrt(unitDictionary.selectedTable.Count) % 1 == 0))
         {
             int formationWidth = (int)Mathf.Sqrt(unitDictionary.selectedTable.Count);
             int formationDepth = (int)Mathf.Sqrt(unitDictionary.selectedTable.Count);
+            float offsetX = 0f;
+            float offsetY = 0f;
+            for (int i = 2; i < unitDictionary.selectedTable.Count + 1; i++)
+            {
+                if (Mathf.Sqrt(i) % 1 == 0)
+                {
+                    offsetX += 0.5f;
+                    offsetY += 0.5f;
+                }
+            }
 
-            Vector3 middleOffset = new Vector3(formationWidth * 0.5f, 0, formationDepth * 0.5f);
+            Vector3 middleOffset = new Vector3(offsetX, 0, offsetY);
 
             for (int x = 0; x < formationWidth; x++)
             {
@@ -63,6 +73,66 @@ public class UnitMovement : MonoBehaviour
             SendFormationData();
             formationPositions.Clear();
         }
+        else
+        {
+            int remainder = GetRemainder();
+            int formationWidth = (int)Mathf.Sqrt(unitDictionary.selectedTable.Count - remainder);
+            int formationDepth = (int)Mathf.Sqrt(unitDictionary.selectedTable.Count - remainder);
+
+            float offsetX = 0f;
+            float offsetY = 0f;
+            for (int i = 2; i < unitDictionary.selectedTable.Count + 1; i++)
+            {
+                if (Mathf.Sqrt(i) % 1 == 0)
+                {
+                    offsetX += 0.5f;
+                    offsetY += 0.5f;
+                }
+            }
+
+            Vector3 middleOffset = new Vector3(offsetX, 0, offsetY);
+
+            for (int x = 0; x < formationWidth; x++)
+            {
+                for (int z = 0; z < formationDepth; z++)
+                {
+                    Vector3 pos = new Vector3(x, 0, z);
+                    pos -= middleOffset;
+                    pos *= spread;
+                    formationPositions.Add(pos + destination);
+                }
+            }
+            if (remainder < Mathf.Sqrt(unitDictionary.selectedTable.Count - remainder))
+            {
+                for (int i = 0; i < remainder; i++)
+                {
+                    Vector3 pos = new Vector3(formationWidth - i - 1, 0, formationDepth);
+                    pos -= middleOffset;
+                    pos *= spread;
+                    formationPositions.Add(pos + destination);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < remainder -(remainder - Mathf.Sqrt(unitDictionary.selectedTable.Count - remainder)); i++)
+                {
+                    Vector3 pos = new Vector3(formationWidth - i - 1, 0, formationDepth);
+                    pos -= middleOffset;
+                    pos *= spread;
+                    formationPositions.Add(pos + destination);
+                }
+                for (int i = 0; i < remainder - Mathf.Sqrt(unitDictionary.selectedTable.Count - remainder); i++)
+                {
+                    Vector3 pos = new Vector3(formationWidth - i - 1, 0, formationDepth + 1);
+                    pos -= middleOffset;
+                    pos *= spread;
+                    formationPositions.Add(pos + destination);
+                }
+            }
+
+            SendFormationData();
+            formationPositions.Clear();
+        }
     }
 
     private void SendFormationData()
@@ -71,7 +141,6 @@ public class UnitMovement : MonoBehaviour
         int i = 0;
         foreach (KeyValuePair<int, GameObject> unit in unitDictionary.selectedTable)
         {
-            Debug.Log(formationPositions[i]);
             unit.Value.GetComponent<NavMeshAgent>().SetDestination(formationPositions[i]);
             i++;
             if (i > formationPositions.Count)
@@ -86,5 +155,19 @@ public class UnitMovement : MonoBehaviour
         System.Random rand = new System.Random();
         unitDictionary.selectedTable = unitDictionary.selectedTable.OrderBy(x => rand.Next()).ToDictionary(item => item.Key, item => item.Value);
 
+    }
+
+    private int GetRemainder()
+    {
+        int n = 0;
+        for (int i = unitDictionary.selectedTable.Count; i > 0; i--)
+        {
+            if (Mathf.Sqrt(i) % 1 == 0)
+            {
+                n = unitDictionary.selectedTable.Count - i;
+                break;
+            }
+        }
+        return n;
     }
 }
