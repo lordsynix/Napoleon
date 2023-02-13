@@ -64,6 +64,42 @@ public class ArmySetup : ScriptableObject
         }
     }
 
+    public GroupType GetGroupType(int index, int squadIndex)
+    {
+        if (squadIndex == 0)
+        {
+            if (leftFlankBuild.Length <= index)
+            {
+                Debug.LogError("Index of group is out of range!");
+                return GroupType.Infantry;
+            }
+            return leftFlankBuild[index].groupType;
+        }
+        else if (squadIndex == 1)
+        {
+            if (centerBuild.Length <= index)
+            {
+                Debug.LogError("Index of group is out of range!");
+                return GroupType.Infantry;
+            }
+            return centerBuild[index].groupType;
+        }
+        else if (squadIndex == 2)
+        {
+            if (rightFlankBuild.Length <= index)
+            {
+                Debug.LogError("Index of unit is out of range!");
+                return GroupType.Infantry;
+            }
+            return rightFlankBuild[index].groupType;
+        }
+        else
+        {
+            Debug.LogError("Index of squad is out of range!");
+            return GroupType.Infantry;
+        }
+    }
+
     public string GetSquadName(int squadIndex)
     {
         if (squadIndex == 0)

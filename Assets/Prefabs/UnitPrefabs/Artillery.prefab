@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2263049262820453552}
   - component: {fileID: 9101591665577225511}
   - component: {fileID: -1680994346589046452}
+  - component: {fileID: 7439695791891294613}
   m_Layer: 8
   m_Name: Artillery
   m_TagString: Player
@@ -141,6 +142,7 @@ MonoBehaviour:
   side: 0
   groupType: 1
   squadType: 0
+  groupType: 1
 --- !u!136 &-1680994346589046452
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -155,3 +157,15 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7439695791891294613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2263049262820453550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e7c1426a5d04943bf7dc1fb446d51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

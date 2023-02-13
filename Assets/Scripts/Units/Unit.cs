@@ -8,12 +8,4 @@ public class Unit : MonoBehaviour
     public Side side;
     public GroupType groupType;
     public SquadType squadType;
-
-    public void SetData(Vector3 unitLocation, GroupType groupType, SquadType squadType, Side side)
-    {
-        currentLocation = unitLocation;
-        this.groupType = groupType;
-        this.squadType = squadType;
-        this.side = side;
-    }
 }

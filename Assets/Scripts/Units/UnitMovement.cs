@@ -32,7 +32,7 @@ public class UnitMovement : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // Starting formation for left squad
-        Transform[] leftSquadUnits = leftSquad.GetComponentsInChildren<Transform>();
+        UnitInformation[] leftSquadUnits = leftSquad.GetComponentsInChildren<UnitInformation>();
         CalculateStartingFormation(leftSquad.transform.position, 0);
         for (int i = 0; i < setup.GetSquadCount(0); i++)
         {
@@ -48,7 +48,7 @@ public class UnitMovement : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // Starting formation for center squad
-        Transform[] centerSquadUnits = centerSquad.GetComponentsInChildren<Transform>();
+        UnitInformation[] centerSquadUnits = centerSquad.GetComponentsInChildren<UnitInformation>();
         CalculateStartingFormation(centerSquad.transform.position, 1);
         for (int i = 0; i < setup.GetSquadCount(1); i++)
         {
@@ -64,7 +64,7 @@ public class UnitMovement : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // Starting formation for right squad
-        Transform[] rightSquadUnits = rightSquad.GetComponentsInChildren<Transform>();
+        UnitInformation[] rightSquadUnits = rightSquad.GetComponentsInChildren<UnitInformation>();
         CalculateStartingFormation(rightSquad.transform.position, 2);
         for (int i = 0; i < setup.GetSquadCount(2); i++)
         {

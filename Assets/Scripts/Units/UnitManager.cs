@@ -31,24 +31,25 @@ public class UnitManager : MonoBehaviour
             for (int i = 0; i < setup.GetSquadCount(j); i++)
             {
                 string typeName = setup.GetGroupName(i, j);
+                GroupType groupType = setup.GetGroupType(i, j);
                 string squadName = setup.GetSquadName(j);
                 Type type = Type.GetType(typeName);
 
-                GenerateGroup(squadName, type);
+                GenerateGroup(squadName, type, groupType);
             }
         }
     }
 
-    private void GenerateGroup(string squadName, Type type)
+    private void GenerateGroup(string squadName, Type type, GroupType groupType)
     {
         for (int i = 0; i < 36; i++)
         {
-            GenerateUnit(squadName, type);
+            GenerateUnit(squadName, type, groupType);
         }
     }
 
-    private void GenerateUnit(string squadName, Type type)
+    private void GenerateUnit(string squadName, Type type, GroupType groupType)
     {
-        Unit newUnit = unitCreator.CreateUnit(type, squadName).GetComponent<Unit>();
+        Unit newUnit = unitCreator.CreateUnit(type, squadName, groupType).GetComponent<Unit>();
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1779539516834139289}
   - component: {fileID: 5479008900979037607}
   - component: {fileID: -3128210219549442655}
+  - component: {fileID: 2938746763956555773}
   m_Layer: 8
   m_Name: Cavalry
   m_TagString: Player
@@ -155,3 +156,15 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2938746763956555773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779539516834139271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e7c1426a5d04943bf7dc1fb446d51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

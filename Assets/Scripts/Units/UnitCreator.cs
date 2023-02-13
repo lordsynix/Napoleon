@@ -19,7 +19,7 @@ public class UnitCreator : MonoBehaviour
             nameToUnitDict.Add(unit.GetComponent<Unit>().GetType().ToString(), unit);
         }
     }
-    public GameObject CreateUnit(Type type, string squadName)
+    public GameObject CreateUnit(Type type, string squadName, GroupType groupType)
     {
         if (squadName == "left")
         {
@@ -27,6 +27,7 @@ public class UnitCreator : MonoBehaviour
             if (prefab)
             {
                 GameObject newUnit = Instantiate(prefab, leftParent);
+                newUnit.GetComponent<UnitInformation>().SetGroupType(groupType);
                 return prefab;
             }
             return null;
@@ -38,6 +39,7 @@ public class UnitCreator : MonoBehaviour
             if (prefab)
             {
                 GameObject newUnit = Instantiate(prefab, centerParent);
+                newUnit.GetComponent<UnitInformation>().SetGroupType(groupType);
                 return prefab;
             }
             return null;
@@ -49,6 +51,7 @@ public class UnitCreator : MonoBehaviour
             if (prefab)
             {
                 GameObject newUnit = Instantiate(prefab, rightParent);
+                newUnit.GetComponent<UnitInformation>().SetGroupType(groupType);
                 return prefab;
             }
             return null;
