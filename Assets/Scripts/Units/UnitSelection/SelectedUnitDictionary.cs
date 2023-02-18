@@ -9,7 +9,21 @@ using UnityEngine.UI;
 public class SelectedUnitDictionary : MonoBehaviour
 {
     public Dictionary<int, GameObject> selectedTable = new Dictionary<int, GameObject>();
-    public Text selectedUnitText;
+
+    [Header("Selected Unit Text")]
+    public GameObject selectedUnits; 
+    public Text selectedInfanteryText;
+    public Text selectedCavaleryText;
+    public Text selectedArtilleryText;
+    public Text selectedLogisticsText;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+            selectedUnits.SetActive(true);
+        if (Input.GetKeyUp(KeyCode.Tab))
+            selectedUnits.SetActive(false);
+    }
 
     public void AddSelected(GameObject addedObject)
     {
@@ -46,14 +60,6 @@ public class SelectedUnitDictionary : MonoBehaviour
         CalculateGroupCount();
     }
 
-    private void Update()
-    {
-        if (selectedTable.Count == 0)
-        {
-            selectedUnitText.text = "0 Units selected.";
-        }       
-    }
-
     private void CalculateGroupCount()
     {
         int infantryCount = 0;
@@ -80,6 +86,9 @@ public class SelectedUnitDictionary : MonoBehaviour
                 logisticsCount += 1;
             }
         }
-        selectedUnitText.text = infantryCount + " Infantry selected, " + artilleryCount + " Artillery selected, " + cavalryCount + " Cavalry selected, " + logisticsCount + " Logistics selected.";
+        selectedInfanteryText.text = infantryCount.ToString();
+        selectedCavaleryText.text = cavalryCount.ToString();
+        selectedArtilleryText.text = artilleryCount.ToString();
+        selectedLogisticsText.text = logisticsCount.ToString();
     }
 }
